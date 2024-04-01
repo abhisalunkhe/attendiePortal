@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+        .header {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .student-card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .student-card {
+            width: calc(50% - 10px);
+            max-width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .student-name {
+            color: #007BFF;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .student-roll-number {
+            color: #777;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .view-details {
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .view-details:hover {
+            text-decoration: underline;
+        }
+        .student-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .no-student-message {
+            text-align: center;
+            color: #777;
+            margin-top: 50px;
+        }
+        .add-student-button {
+            display: block;
+            margin: 20px auto;
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .add-student-button:hover {
+            background-color: #0056b3;
+        }
+        @media (max-width: 768px) {
+            /* Adjust styles for mobile view */
+            .student-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Student List</h1>
+    </div>
+    <div class="student-card-container">
+        {% for student in students %}
+        <div class="student-card">
+            <h2 class="student-name">{{ student.name }}</h2>
+            <p class="student-roll-number">Roll Number: {{ student.roll_number }}</p>
+            <a href="{% url 'student_detail' student.id %}" class="view-details">View Details <i class="fas fa-arrow-right"></i></a>
+        </div>
+        {% endfor %}
+    </div>
+    {% if students|length == 0 %}
+    <p class="no-student-message">No students found.</p>
+    {% endif %}
+</body>
+</html>

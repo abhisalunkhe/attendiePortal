@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Student Attendance System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .header {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .main-content {
+            text-align: center;
+            margin-top: 100px;
+        }
+        .main-content h1 {
+            color: #007BFF;
+            margin-bottom: 30px;
+        }
+        .main-content p {
+            color: #444;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .main-content a {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .main-content a:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            /* Adjust styles for mobile view */
+            .main-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to Student Attendance System</h1>
+    </div>
+    <div class="main-content">
+        <h1>About Student Attendance System</h1>
+        <p>
+            The Student Attendance System is a web application designed to manage and track the attendance of students.
+            It provides a user-friendly interface for teachers and administrators to record and view attendance records.
+            Students and parents can also access their attendance details.
+        </p>
+        <a href="{% url 'student_list' %}">View Student List</a>
+    </div>
+    
+</body>
+</html>
